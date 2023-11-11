@@ -6,3 +6,5 @@ seaborn
 gensim  
 scikit-learn
 pyLDAvis
+contractions
+wordcloud
