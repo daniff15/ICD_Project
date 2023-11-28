@@ -8,3 +8,4 @@ scikit-learn
 pyLDAvis
 contractions
 wordcloud
+streamlit
