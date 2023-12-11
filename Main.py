@@ -21,7 +21,7 @@ st.markdown(
 
 # Load data
 DATE_COLUMN = 'Abstract'
-DATA_URL = ('./icd_scopus.csv')
+DATA_URL = ('./data/icd_scopus.csv')
 
 def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)

@@ -9,3 +9,4 @@ pyLDAvis
 contractions
 wordcloud
 streamlit
+plotly
