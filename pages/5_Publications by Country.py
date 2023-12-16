@@ -2,9 +2,16 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+#with open("styles.css", "r") as f:
+#    custom_css = f.read()
+
+#st.markdown(f"<style>{custom_css}</style>", unsafe_allow_html=True)
+
 # Load the dataset
 file_path = "./data/icd_scopus.csv"
 df = pd.read_csv(file_path)
+
+st.title("Publications by Country and Funding Relations")
 
 # Display the slider for selecting the number of countries to display
 top_countries_count = st.slider("Select Number of Countries to Display", min_value=1, max_value=len(df["Country"].unique()), value=5)
@@ -31,7 +38,6 @@ st.subheader("Funding and Publications Relationship")
 # Assuming "Funding Details" contains information about funding
 df["Funded"] = df["Funding Details"].notnull()
 
-# Calculate the average number of publications for funded and non-funded entries for each country
 avg_publications_by_country = df.groupby(["Country", "Funded"])["Title"].count().reset_index()
 avg_publications_by_country.columns = ["Country", "Funded", "Number of Publications"]
 
@@ -45,9 +51,7 @@ top_countries_avg_df = top_countries_avg_df.sort_values(by=["Country", "Number o
 # Create and display the bar chart
 fig_avg_publications = px.bar(top_countries_avg_df, x="Number of Publications", y="Country", color="Funded",
                               orientation="h",
-                              title="Average Number of Publications by Funding Status",
-                              labels={"Number of Publications": "Average Number of Publications",
-                                      "Country": "Country", "Funded": "Funding Status"},
+                              labels={"Country": "Country", "Funded": "Funding Status"},
                               color_discrete_map={"True": "green", "False": "red"})
 st.plotly_chart(fig_avg_publications)
 

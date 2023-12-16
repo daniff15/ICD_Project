@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+with open("styles.css", "r") as f:
+    custom_css = f.read()
+
+# Inject custom CSS
+st.markdown(f"<style>{custom_css}</style>", unsafe_allow_html=True)
+
 # Read data from CSV file
 file_path = "./data/icd_scopus.csv"
 df = pd.read_csv(file_path)
