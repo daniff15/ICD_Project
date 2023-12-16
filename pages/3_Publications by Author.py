@@ -41,10 +41,14 @@ else:
         st.info(f"No articles found where the selected author co-authored: {selected_author}")
     else:
         # Display phrases above each table with a 3:1 column display
+        # Display phrases above each table with a 3:1 column display
         col1, col2 = st.columns([3, 1])  # Adjust the proportions here
         with col1:
             st.write(f"Publications for {selected_author}:")
-            st.table(filtered_df[["Title", "Author full names"]])
+            # Sort the DataFrame by the "Cited by" column
+            filtered_df_sorted = filtered_df.sort_values(by="Cited by", ascending=False)
+            # Display a table with the articles and the number of citations
+            st.table(filtered_df_sorted[["Title", "Author full names", "Cited by"]])
 
         with col2:
             st.write("Top 10 Authors with Most Articles:")
