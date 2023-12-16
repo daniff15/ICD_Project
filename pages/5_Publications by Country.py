@@ -2,16 +2,11 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-#with open("styles.css", "r") as f:
-#    custom_css = f.read()
-
-#st.markdown(f"<style>{custom_css}</style>", unsafe_allow_html=True)
-
 # Load the dataset
 file_path = "./data/icd_scopus.csv"
 df = pd.read_csv(file_path)
 
-st.title("Publications by Country and Funding Relations")
+st.title("Publications by Country, Funding Relations, and Citations")
 
 # Display the slider for selecting the number of countries to display
 top_countries_count = st.slider("Select Number of Countries to Display", min_value=1, max_value=len(df["Country"].unique()), value=5)
@@ -74,3 +69,25 @@ fig_scatter = px.scatter(df, x="Funded", y="Cited by", color="Funded",
                          labels={"Funded": "Funding Status", "Cited by": "Number of Citations"},
                          color_discrete_map={"True": "green", "False": "red"})
 st.plotly_chart(fig_scatter)
+
+# Create a pie chart using Altair
+countries_count = df["Country"].value_counts(normalize=True).reset_index()
+countries_count.columns = ["Country", "Percentage"]
+
+# Create and display the pie chart
+fig_pie = px.pie(countries_count, names="Country", values="Percentage", title="Percentage of Articles by Country")
+fig_pie.update_traces(textposition='inside')
+fig_pie.update_layout(uniformtext_minsize=12, uniformtext_mode='hide')
+st.plotly_chart(fig_pie)
+
+# Display a table showing the number of citations for each article in the selected country
+selected_country = st.selectbox("Select a Country", top_countries_df["Country"].unique())
+if selected_country:
+    # Filter the DataFrame for the selected country
+    selected_country_df = df[df["Country"] == selected_country]
+    
+    # Sort the DataFrame by the number of citations
+    citations_table = selected_country_df[["Title", "Cited by"]].sort_values(by="Cited by", ascending=False)
+    
+    # Display the sorted table
+    st.table(citations_table)

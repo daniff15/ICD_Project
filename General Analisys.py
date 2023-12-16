@@ -7,7 +7,11 @@ file_path_subjects = "./data/Scopus-384-Analyze-Subject.csv"
 df_subjects = pd.read_csv(file_path_subjects)
 
 # Display the data
-st.title("Publications by Subject Area")
+# Theme - Gamification enhances studend participation?
+st.title("Gamification enhances studend participation?")
+# Short description of the theme
+st.markdown("Gamification is the use of game design elements in non-game contexts. "
+            "In education, gamification is used to increase student participation and engagement by incorporating game elements in learning environments. ")
 
 # Create a bar chart
 fig_subjects = px.bar(df_subjects, x="PUBLICATIONS", y="SUBJECT AREA",
