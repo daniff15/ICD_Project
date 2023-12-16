@@ -15,11 +15,18 @@ unique_affiliations = list(set(all_affiliations))
 
 st.title("Publications by Affiliation")
 
+# Calculate publication counts for each affiliation
+affiliation_counts = df.groupby("Affiliations").size().reset_index(name="Publication Count")
+affiliation_counts = affiliation_counts.sort_values(by="Publication Count", ascending=False)
+
+# Select top 5 affiliations with the highest publication counts, excluding empty string
+default_affiliations = list(affiliation_counts[affiliation_counts["Affiliations"] != ""].head(5)["Affiliations"])
+
 # Option to select multiple affiliations
 selected_affiliations = st.multiselect(
     "Select Affiliations",
     options=unique_affiliations,
-    default=[affiliation for affiliation in unique_affiliations if affiliation != ""][:5]
+    default=default_affiliations
 )
 
 filtered_df = df[df["Affiliations"].apply(lambda x: any(affiliation.lower() in x.lower() for affiliation in selected_affiliations))]
@@ -30,7 +37,8 @@ if total_articles == 0:
     st.warning("No publications found for the selected affiliations.")
 else:
     affiliation_counts = filtered_df.groupby("Affiliations").size().reset_index(name="Publication Count")
-    affiliation_counts = affiliation_counts.sort_values(by="Publication Count", ascending=False)  # Order by most publications
-    affiliation_counts = affiliation_counts.head(10)  # Select top 10
-    fig = px.bar(affiliation_counts, y="Publication Count", x="Affiliations", title="Affiliation Publication Counts")
+    affiliation_counts = affiliation_counts.sort_values(by="Publication Count", ascending=False)
+    affiliation_counts = affiliation_counts.head(10)
+    fig = px.bar(affiliation_counts, y="Publication Count", x="Affiliations", title="Affiliation Publication Counts",
+                 labels={"Affiliations": "Affiliation", "Publication Count": "Number of Publications"})
     st.plotly_chart(fig)

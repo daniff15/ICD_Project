@@ -34,6 +34,4 @@ st.pyplot(fig)
 
 # Additional Information
 st.subheader("Additional Information:")
-st.write(f"Maximum Publications in a Year: {filtered_df['PUBLICATIONS'].max()}")
-st.write(f"Minimum Publications in a Year: {filtered_df['PUBLICATIONS'].min()}")
 st.write(f"Average Publications per Year: {filtered_df['PUBLICATIONS'].mean():.2f}")
