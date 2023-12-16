@@ -23,7 +23,7 @@ top_countries_df = country_publications.head(top_countries_count)
 
 # Create and display the bar chart
 fig_bar = px.bar(top_countries_df, x="Publications", y="Country", orientation="h",
-                 title=f"Top {top_countries_count} Countries by Number of Publications",
+                 title=f"Countries with Most Publications",
                  labels={"Publications": "Number of Publications", "Country": "Country"})
 st.plotly_chart(fig_bar)
 

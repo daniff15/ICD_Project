@@ -9,7 +9,7 @@ df = pd.read_csv(file_path)
 st.title("Yearly Publications Plot")
 
 # Sidebar with year selection
-selected_year = st.sidebar.slider("Select Year", min_value=int(df["Year"].min()), max_value=int(df["Year"].max()))
+selected_year = st.sidebar.slider("Select Year", min_value=int(df["Year"].min()), max_value=int(df["Year"].max()), value=2023)
 
 # Filter data based on selected year and all previous years
 filtered_df = df[df["Year"] <= selected_year]
@@ -19,8 +19,8 @@ st.write("Data till selected year: ", selected_year)
 # Create dictionary to store the number of publications for each year
 year_publications = {}
 
-# Iterate through each article
-for index, row in df.iterrows():
+# Iterate through each article in the filtered dataframe
+for index, row in filtered_df.iterrows():
     # Update the dictionary with the number of publications for each year
     if row["Year"] in year_publications:
         year_publications[row["Year"]] += 1
@@ -50,9 +50,9 @@ st.pyplot(fig1)
 
 # Create a bar chart for top countries using a separate Axes object
 fig2, ax2 = plt.subplots(figsize=(10, 4))
-top_countries = df[df['Year'] <= selected_year]['Country'].value_counts().head(10)
+top_countries = filtered_df['Country'].value_counts().head(10)
 ax2.bar(top_countries.index, top_countries.values, color='skyblue')
-ax2.set(xlabel="Country", ylabel="Number of Publications", title=f"Top 10 Countries in {selected_year}")
+ax2.set(xlabel="Country", ylabel="Number of Publications", title=f"Countries with Most Publications till {selected_year}")
 ax2.tick_params(axis='x', rotation=45)
 ax2.grid()
 

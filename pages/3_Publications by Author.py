@@ -74,7 +74,7 @@ else:
         top_cited_authors_df = top_cited_authors_df.sort_values(by="Total Citations", ascending=False).head(10)
 
         # Add a bar chart displaying the most cited authors
-        st.write(f"Top 10 Authors by Total Citations")
+        st.write(f"Authors with Most Citations:")
 
         # Add the selected author to the top cited authors
         if selected_author not in top_cited_authors_df["Author"].tolist():
