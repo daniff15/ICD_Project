@@ -10,3 +10,5 @@ contractions
 wordcloud
 streamlit
 plotly
+nbimporter
+nbformat
