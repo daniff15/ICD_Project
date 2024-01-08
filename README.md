@@ -14,14 +14,28 @@ Análise de ambientes gamificados em contexto educacional - Relação entre ambi
 Todos os comandos devem ser executados na pasta raíz.
 ### Criação de um virtual environment e aceder
 
+python3:
 ```bash
-python3 -m venv venv || python -v venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
+python:
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
 ### Instalação de requirements.
 
+pip3:
 ```bash
-pip3 intall -r requirements.txt || pip install -r requirements.txt
+pip3 intall -r requirements.txt
+```
+|| 
+
+pip:
+```bash
+pip intall -r requirements.txt
 ``` 
 ### Correr o notebook
 Ficheiro main.ipynb e executar todos.
