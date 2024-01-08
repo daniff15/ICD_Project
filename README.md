@@ -14,6 +14,7 @@ O objetivo é que os alunos possam utilizar este template como ponto de partida 
 Análise de ambientes gamificados em contexto educacional - Relação entre ambientes gamificados utilizados em contextos educacionais e a participação dos estudantes em sala de aula
 
 ## Como correr
+Todos os comandos devem ser executados na pasta raíz.
 ### Criação de um virtual environment e aceder
 
 ```bash
