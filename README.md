@@ -7,7 +7,7 @@ O trabalho prático da disciplina de [Introdução à Ciência dos Dados](https:
 Este projeto constitui um template disponibilizado pelo docente para a realização do projeto da disciplina de ICD. 
 O objetivo é que os alunos possam utilizar este template como ponto de partida para o seu projeto.
 
-## Team
+## Tema
 Análise de ambientes gamificados em contexto educacional - Relação entre ambientes gamificados utilizados em contextos educacionais e a participação dos estudantes em sala de aula
 
 ## Como correr
