@@ -33,6 +33,9 @@ Ficheiro main.ipynb e executar todos.
 streamlit run General\ Analisys.py
 ```
 
+### Nota 
+Ficheiro main2.py, usado para execução do LDA na dashboard
+
 ## Group members
 
 | NMec | Name | Github | Email |
