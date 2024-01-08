@@ -19,6 +19,7 @@ python3:
 python3 -m venv venv
 source venv/bin/activate
 ```
+ou
 python:
 ```bash
 python -m venv venv
@@ -31,7 +32,7 @@ pip3:
 ```bash
 pip3 intall -r requirements.txt
 ```
-|| 
+ou
 
 pip:
 ```bash
