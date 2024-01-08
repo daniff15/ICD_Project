@@ -20,6 +20,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 ou
+
 python:
 ```bash
 python -m venv venv
