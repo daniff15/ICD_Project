@@ -23,13 +23,15 @@ source venv/bin/activate
 ### Instalação de requirements.
 
 ```bash
-pip3 intall -r requirements.txt
+pip3 intall -r requirements.txt || pip install -r requirements.txt
 ``` 
 ### Correr o notebook
 Ficheiro main.ipynb e executar todos.
 
 ### Correr a dashboard
+```bash
 streamlit run General\ Analisys.py
+```
 
 ## Group members
 
