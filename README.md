@@ -10,15 +10,32 @@ O trabalho prático da disciplina de [Introdução à Ciência dos Dados](https:
 Este projeto constitui um template disponibilizado pelo docente para a realização do projeto da disciplina de ICD. 
 O objetivo é que os alunos possam utilizar este template como ponto de partida para o seu projeto.
 
+## Team
+Análise de ambientes gamificados em contexto educacional - Relação entre ambientes gamificados utilizados em contextos educacionais e a participação dos estudantes em sala de aula
 
-### Métodos Utilizados
-* API & Requests library
-* JSON processing
-* Pandas
-* etc.
+## Como correr
+### Criação de um virtual environment e aceder
 
-### Principais tecnologias
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Scopus](https://a11ybadges.com/badge?logo=scopus)
+```bash
+python3 -m venv venv || python -v venv venv
+source venv/bin/activate
+```
+### Instalação de requirements.
+
+```bash
+pip3 intall -r requirements.txt
+``` 
+### Correr o notebook
+Ficheiro main.ipynb e executar todos.
+
+### Correr a dashboard
+streamlit run General\ Analisys.py
+
+## Group members
+
+| NMec | Name | Github | Email |
+|--:|---|---|---|
+| 98498 | **Daniel Figueiredo** | [daniff15](https://github.com/daniff15) | dani.fig@ua.pt |
+| 98471 | **Filipe Freixo** | [Filipe18](https://github.com/Filipe18) | filipefreixo1@ua.pt |
+
 
